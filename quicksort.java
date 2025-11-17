@@ -5,30 +5,33 @@ public class quicksort {
         quicksort(A, 0, A.length - 1);
 
         for (int s : A) {
-            System.out.println("he" + s);
+            System.out.println("he : " + s);
         }
     }
 
     static void quicksort(int[] A, int low, int high) {
         if (low < high) {
             int pi = partition(A, low, high);
-            quicksort(A, low, pi + 1);
-            quicksort(A, pi - 1, high);
+            quicksort(A, low, pi - 1);
+            quicksort(A, pi + 1, high);
         }
     }
 
     static int partition(int[] A, int low, int high) {
-        int pivot = (low - high) / 2;
-        int k = low - 1;
-        for (int i = low; i < high; i++) {
-            if (A[i] < pivot) {
+        int pivot = A[(low + high) / 2];
+        int k = low;
+        int m = high;
+        while(k <= m) {
+            while(A[k] < pivot) k++;
+            while(A[m] > pivot) m--;
+            
+            if(k <= m) {
+                swap(A, k, m);
                 k++;
-                swap(A, k, i);
+                m--;
             }
         }
-
-        swap(A, k + 1, high);
-        return k + 1;
+        return k;
     }
 
     static void swap(int[] A, int low, int high) {
@@ -37,3 +40,4 @@ public class quicksort {
         A[high] = tmp;
     }
 }
+
