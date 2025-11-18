@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class bfs {
-    
+
     private Map<Integer, List<Integer>> graph;
     private Set<Integer> visited;
 
@@ -12,32 +12,35 @@ public class bfs {
         s.addEdge(1, 3);
         s.addEdge(2, 4);
         s.addEdge(3, 5);
-        
+
         s.BFS(0);
     }
-    
+
     public bfs() {
         this.graph = new HashMap<>();
         this.visited = new HashSet<>();
     }
-    
+
     public void addEdge(int start, int end) {
         graph.computeIfAbsent(start, k -> new ArrayList<>()).add(end);
     }
-    
+
     public void BFS(int start) {
         Queue<Integer> queue = new LinkedList<>();
-        
+
         queue.add(start);
         visited.add(start);
-        
-        while(!queue.isEmpty()) {
+
+        while (!queue.isEmpty()) {
             int node = queue.poll();
-            
+
             System.out.println(node);
-            
-            for(int neigbor : graph.getOrDefoult(node, Collections.emptyList())) {
-                if(!visited.contains(neigbor)) {
+
+            for (int neigbor : graph.getOrDefault(
+                node,
+                Collections.emptyList()
+            )) {
+                if (!visited.contains(neigbor)) {
                     visited.add(neigbor);
                     queue.add(neigbor);
                 }

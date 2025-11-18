@@ -1,3 +1,5 @@
+package threadsample;
+
 public class Order {
 
     public final int id;

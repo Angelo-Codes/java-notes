@@ -1,3 +1,7 @@
+package threadsample;
+
+import java.util.concurrent.Callable;
+
 public class ShippingService implements Callable<Order> {
 
     public final Order order;
