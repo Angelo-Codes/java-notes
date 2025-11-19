@@ -1,7 +1,6 @@
-package threadsample;
-
 import java.util.Arrays;
 import java.util.List;
+import threadsample.Order;
 import threadsample.OrderPipeline;
 
 public class Main {
@@ -15,6 +14,6 @@ public class Main {
             new Order(5)
         );
 
-        new OrderPipeline().processOrder(orders);
+        new OrderPipeline().processOrders(orders);
     }
 }

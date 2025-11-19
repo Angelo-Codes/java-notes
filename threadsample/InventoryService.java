@@ -11,7 +11,7 @@ public class InventoryService implements Callable<Order> {
     }
 
     public Order call() throws Exception {
-        System.out.println("checking inventory for : " + order);
+        System.out.println(" checking inventory for : " + order);
         Thread.sleep(600);
 
         System.out.println("inventory reserve ok for : " + order);
